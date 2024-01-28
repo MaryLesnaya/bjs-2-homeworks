@@ -11,7 +11,7 @@ function Student(name, gender, age) {
   
   Student.prototype.addMarks = function (...marks) {
     if(this.marks !== undefined){ 
-      this.marks.push(...marks);
+      this.marks.push(marks);
     }
   }
   
