@@ -6,7 +6,7 @@ function parseCount(count) {
     }
   return newCount;
 }
-  
+
 function validateCount(value) {
   try {
     return parseCount(value);
@@ -15,35 +15,30 @@ function validateCount(value) {
   }
 }
 
-  
+
 //Задача 2
 class Triangle {
   constructor(a, b, c) {
     this.a = a;
     this.b = b;
     this.c = c;
+
+    if(this.a + this.b < this.c || this.a + this.c < this.b || this.c + this.b < this.a) {
+      throw new Error("Треугольник с такими сторонами не существует");
+    }
   }
-  
-  if((this.a + this.b) < this.c || (this.a + this.c) < this.b || (this.c + this.b) < this.a) {
-    throw new Error("Треугольник с такими сторонами не существует");
-  }
-    /*breakRule() {
-      if(this.a + this.b < this.c || this.a + this.c < this.b || this.c + this.b < this.a) {
-        throw new Error("Треугольник с такими сторонами не существует");
-      }
-    }*/
   
   get perimeter() {
     return this.a + this.b + this.c;
   } 
-  
+
   get area() {
     let semiPerimeter = 0.5 * (this.a + this.b + this.c);
     let areaOfTriangle = Math.sqrt(semiPerimeter * (semiPerimeter - this.a) * (semiPerimeter - this.b) * (semiPerimeter - this.c));
     return Number(areaOfTriangle.toFixed(3))
   }
 }
-  
+
 function getTriangle(a, b, c) {
   try {
     return new Triangle(a, b, c);
@@ -56,7 +51,7 @@ function getTriangle(a, b, c) {
         return "Ошибка! Треугольник не существует";
       },
     }
-  
+
     return triangleError;
   }
 }
