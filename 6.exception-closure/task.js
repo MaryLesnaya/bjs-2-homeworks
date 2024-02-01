@@ -21,7 +21,7 @@ function parseCount(count) {
     constructor(a, b, c) {
       this.a = a;
       this.b = b;
-      this.c = cancelIdleCallback;
+      this.c = c;
     }
   
     if((this.a + this.b) < this.c || (this.a + this.c) < this.b || (this.c + this.b) < this.a) {
