@@ -24,19 +24,21 @@ function parseCount(count) {
       this.c = cancelIdleCallback;
     }
   
-    breakRule() {
+    if((this.a + this.b) < this.c || (this.a + this.c) < this.b || (this.c + this.b) < this.a) {
+        throw new Error("Треугольник с такими сторонами не существует");
+      }
+    /*breakRule() {
       if(this.a + this.b < this.c || this.a + this.c < this.b || this.c + this.b < this.a) {
         throw new Error("Треугольник с такими сторонами не существует");
       }
-    }
+    }*/
   
     get perimeter() {
-      let p = this.a + this.b + this.c;
-      return p;
+      return this.a + this.b + this.c;
     } 
   
     get area() {
-      let semiPerimeter = 0.5 * p;
+      let semiPerimeter = 0.5 * (this.a + this.b + this.c);
       let areaOfTriangle = Math.sqrt(semiPerimeter * (semiPerimeter - this.a) * (semiPerimeter - this.b) * (semiPerimeter - this.c));
       return Number(areaOfTriangle.toFixed(3))
     }
