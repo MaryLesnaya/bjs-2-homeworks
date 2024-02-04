@@ -9,17 +9,14 @@ class PrintEditionItem {
     }
   
     fix() {
-        this.state *= 1.5;
-        if (this.state > 100) {
-          this.state = 100;
-        }
-      }
+      this.state *= 1.5;
+    }
   
     set state(newState) {
-      if (this.newState < 0) {
-        this.state = 0;
-      } else if (this.newState > 100) {
-        this.state = 100;
+      if (newState < 0) {
+        this._state = 0;
+      } else if (newState > 100) {
+        this._state = 100;
       } else {
         this._state = newState;
       }
