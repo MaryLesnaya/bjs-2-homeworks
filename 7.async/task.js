@@ -5,7 +5,7 @@ class AlarmClock {
   }
 
   addClock(time, callback){
-    if (time === undefined && callback === undefined) {
+    if (time === 0 && callback === 0) {
       throw new Error('Отсутствуют обязательные аргументы');
     }
 
@@ -33,7 +33,7 @@ class AlarmClock {
   }
 
   start() {
-    if (this.intervalId !== undefined) {
+    if (this.intervalId !== 0) {
       return;
     }
 
